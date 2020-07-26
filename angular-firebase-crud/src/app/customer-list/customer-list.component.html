@@ -13,8 +13,12 @@
             <td>{{customer.location}}</td>
             <td>
                 <button class="btn btn-outline-info" (click)="customerService.populateForm(customer)" >Edit</button>
-                <button class="btn btn-outline-info">Delete</button>
+                <button class="btn btn-outline-info" (click)="onDelete(customer.$key)">Delete</button>
             </td>
         </tr>
     </ng-container>
 </table>
+
+<div class="alert alert-danger" *ngIf="showDeletedMessage">
+    Deleted successfully.
+</div>

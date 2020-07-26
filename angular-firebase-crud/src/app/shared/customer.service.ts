@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl , FormGroup, Validators, MinLengthValidator } from '@angular/Forms';
 import { AngularFireDatabase , AngularFireList } from 'angularfire2/database';
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,10 @@ export class CustomerService {
         location:customer.location
       }
       );
+  }
+
+  deleteCustomer($key: string){
+    this.customerList.remove($key);
   }
 
 }

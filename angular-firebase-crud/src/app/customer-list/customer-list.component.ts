@@ -9,6 +9,7 @@ import { CustomerService } from '../shared/customer.service';
 })
 export class CustomerListComponent implements OnInit {
   customerArray=[];
+  showDeletedMessage:boolean;
 
   constructor(private customerService:CustomerService) { }
 
@@ -24,4 +25,11 @@ export class CustomerListComponent implements OnInit {
       });    
   }
 
+  onDelete($key){
+    if(confirm("Are you sure to delete this record ?")){
+      this.customerService.deleteCustomer($key);
+      this.showDeletedMessage=true;
+      setTimeout(() => this.showDeletedMessage=false,3000);
+    }
+  }
 }
