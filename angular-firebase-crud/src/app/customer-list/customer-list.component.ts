@@ -10,6 +10,7 @@ import { CustomerService } from '../shared/customer.service';
 export class CustomerListComponent implements OnInit {
   customerArray=[];
   showDeletedMessage:boolean;
+  searchText: string="";
 
   constructor(private customerService:CustomerService) { }
 
