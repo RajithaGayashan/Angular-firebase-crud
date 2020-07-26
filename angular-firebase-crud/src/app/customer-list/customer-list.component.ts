@@ -8,11 +8,20 @@ import { CustomerService } from '../shared/customer.service';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
+  customerArray=[];
 
   constructor(private customerService:CustomerService) { }
 
   ngOnInit() {
-    this.customerService.getCustomers();
+    this.customerService.getCustomers().subscribe(
+      list => {
+        this.customerArray = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+      });    
   }
 
 }
