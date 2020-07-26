@@ -33,4 +33,8 @@ export class CustomerListComponent implements OnInit {
       setTimeout(() => this.showDeletedMessage=false,3000);
     }
   }
+
+  filterCondition(customer){
+    return customer.fullName.toLowerCase().indexOf(this.searchText.toLowerCase()) !=-1;
+  }
 }
