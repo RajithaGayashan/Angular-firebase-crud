@@ -38,5 +38,15 @@ export class CustomerService {
     this.form.setValue(customer);
   }
 
+  updateCuxtomer(customer){
+    this.customerList.update(customer.$key,
+      {
+        fullName:customer.fullName,
+        email:customer.email,
+        mobile:customer.mobile,
+        location:customer.location
+      }
+      );
+  }
 
 }
